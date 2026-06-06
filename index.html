@@ -1,178 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Angie 🎂</title>
-
-    <link rel="stylesheet" href="styles.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Happy Birthday Angie 🎀</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-    <section class="hero">
-        <h1 id="typing"></h1>
-        <button onclick="scrollToSection('beginning')">Continue →</button>
-    </section>
+  <!-- ░░ LOADING SCREEN ░░ -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-ring"></div>
+      <div class="loader-text" id="loaderText">Initializing Birthday Protocol...</div>
+      <div class="loader-bar-wrap"><div class="loader-bar" id="loaderBar"></div></div>
+      <div class="loader-sub" id="loaderSub"></div>
+    </div>
+    <canvas id="loaderParticles"></canvas>
+  </div>
 
-    <section id="beginning" class="card">
-        <h2>The Weirdest Way To Meet Someone</h2>
+  <!-- ░░ MAIN SITE ░░ -->
+  <main id="mainSite" class="hidden">
 
-        <p>
-            Three months ago, a random OmeTV call connected two strangers.
-        </p>
+    <!-- Floating ambient blobs -->
+    <div class="ambient-blob blob-1"></div>
+    <div class="ambient-blob blob-2"></div>
+    <div class="ambient-blob blob-3"></div>
+    <canvas id="particleCanvas"></canvas>
 
-        <p>
-            The first thing you told me was:
-        </p>
-
-        <blockquote>
-            "You literally look like my ex."
-        </blockquote>
-
-        <p>
-            Not exactly the fairy tale opening most friendships get.
-        </p>
-
-        <p>
-            Yet somehow... here we are.
-        </p>
-    </section>
-
-    <section class="card">
-        <h2>Statistics About Angie</h2>
-
-        <div class="stats">
-            <div>🎂 Birthdays celebrated together: <span>1</span></div>
-            <div>🚫 Times Angie blocked me: <span>5</span></div>
-            <div>🤷 Warnings before blocking: <span>0</span></div>
-            <div>⚖️ Times I deserved it: <span>Debatable</span></div>
-            <div>📸 Camera Camera moments: <span>∞</span></div>
-            <div>🕵️ Times camera stayed on: <span>Classified</span></div>
+    <!-- ── SECTION 1: HERO ── -->
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-badge">✨ A Special Delivery ✨</div>
+        <h1 class="hero-title">
+          <span class="typewriter" id="heroLine1"></span>
+        </h1>
+        <p class="hero-sub" id="heroLine2"></p>
+        <div class="hero-level">
+          <span class="level-icon">🎮</span>
+          <span id="heroLine3"></span>
         </div>
-    </section>
-
-    <section class="card">
-        <h2>Camera Camera!</h2>
-
-        <div class="gallery">
-
-            <div class="photo">
-                <h3>Photo 1</h3>
-                <p>Camera Off</p>
-            </div>
-
-            <div class="photo">
-                <h3>Photo 2</h3>
-                <p>Camera Off</p>
-            </div>
-
-            <div class="photo">
-                <h3>Photo 3</h3>
-                <p>Camera Off</p>
-            </div>
-
-            <div class="photo">
-                <h3>Photo 4</h3>
-                <p>Camera Off</p>
-            </div>
-
-        </div>
-
-        <p class="scientist">
-            Scientists are still searching for visual evidence of Angie.
-        </p>
-    </section>
-
-    <section class="card">
-        <h2>What I Actually Think</h2>
-
-        <p>
-            Underneath all the sarcasm, disappearing acts, and random blocking sessions...
-        </p>
-
-        <p>
-            you're genuinely one of the strongest people I've met.
-        </p>
-
-        <p>
-            Not because life has been easy.
-        </p>
-
-        <p>
-            But because it hasn't.
-        </p>
-
-        <p>
-            And somehow you keep moving anyway.
-        </p>
-
-        <p>
-            You act tougher than you really are.
-        </p>
-
-        <p>
-            But I know there's a softer side you don't show everyone.
-        </p>
-
-        <p>
-            The side that overthinks.
-        </p>
-
-        <p>
-            The side that gets hurt.
-        </p>
-
-        <p>
-            The side that cares more than it admits.
-        </p>
-
-        <p>
-            I hope 19 is kinder to you.
-        </p>
-
-        <p>
-            But even if it isn't...
-        </p>
-
-        <p>
-            I know you'll handle it.
-        </p>
-    </section>
-
-    <section class="card level">
-        <h2>LEVEL 19 UNLOCKED 🎮</h2>
-
-        <div class="skills">
-            <p>✓ Smart</p>
-            <p>✓ Nerdy</p>
-            <p>✓ Funny</p>
-            <p>✓ Caring</p>
-            <p>✓ Stubborn</p>
-        </div>
-
-        <p class="ability">
-            Special Ability:
-            Survives things she never talks about.
-        </p>
-    </section>
-
-    <section class="final">
-        <h1>Happy Birthday Angie 🎂</h1>
-
-        <p>
-            Keep being curious.<br>
-            Keep being annoying.<br>
-            Keep becoming the person you're supposed to be.
-        </p>
-
-        <button id="cameraBtn">
-            CAMERA CAMERA 📸
+        <button class="cta-btn" onclick="scrollToSection('origin')">
+          Begin Adventure <span class="btn-arrow">→</span>
         </button>
+      </div>
+      <div class="hero-floating-elements">
+        <div class="float-elem fe-1">🌸</div>
+        <div class="float-elem fe-2">⭐</div>
+        <div class="float-elem fe-3">💫</div>
+        <div class="float-elem fe-4">🎀</div>
+        <div class="float-elem fe-5">✨</div>
+        <div class="float-elem fe-6">🌙</div>
+      </div>
     </section>
 
-    <script src="app.js"></script>
+    <!-- ── SECTION 2: ORIGIN STORY ── -->
+    <section id="origin" class="section">
+      <div class="section-header">
+        <span class="section-tag">Chapter 01</span>
+        <h2 class="section-title">The Origin Story</h2>
+        <p class="section-subtitle">A completely random sequence of events that somehow made sense.</p>
+      </div>
 
+      <div class="timeline">
+        <!-- Event 1 -->
+        <div class="timeline-item tl-left reveal">
+          <div class="tl-card">
+            <div class="tl-emoji">📡</div>
+            <div class="tl-dot"></div>
+            <h3>Random OmeTV Call</h3>
+            <p>Two strangers. One internet connection. Absolutely zero reason for this to go well.</p>
+            <span class="tl-tag">~3 months ago</span>
+          </div>
+        </div>
+        <!-- Event 2 -->
+        <div class="timeline-item tl-right reveal">
+          <div class="tl-card">
+            <div class="tl-emoji">🤨</div>
+            <div class="tl-dot"></div>
+            <h3>First Words Ever</h3>
+            <p class="quote-text">"You literally look like my ex."</p>
+            <p>Groundbreaking introduction. Academy Award for most unexpected opener.</p>
+            <span class="tl-tag">Historic moment</span>
+          </div>
+        </div>
+        <!-- Event 3 -->
+        <div class="timeline-item tl-left reveal">
+          <div class="tl-card">
+            <div class="tl-emoji">🎲</div>
+            <div class="tl-dot"></div>
+            <h3>Against All Odds</h3>
+            <p>We became... friends? Yes. Actual friends. Despite everything, despite the blocks, despite the camera being perpetually off.</p>
+            <span class="tl-tag">Somehow 💖</span>
+          </div>
+        </div>
+        <!-- Event 4 -->
+        <div class="timeline-item tl-right reveal">
+          <div class="tl-card">
+            <div class="tl-emoji">🚫</div>
+            <div class="tl-dot"></div>
+            <h3>Block #1 (of many)</h3>
+            <p>No warning. No explanation. Just... gone. Classic Angie strategy.</p>
+            <span class="tl-tag">The first of five</span>
+          </div>
+        </div>
+        <!-- Event 5 -->
+        <div class="timeline-item tl-left reveal last">
+          <div class="tl-card">
+            <div class="tl-emoji">🌸</div>
+            <div class="tl-dot"></div>
+            <h3>Still Here, Still Friends</h3>
+            <p>The friendship that survived five blocks, infinite camera-off moments, and literally everything the universe threw at it.</p>
+            <span class="tl-tag">Now 🎉</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 3: STATS DASHBOARD ── -->
+    <section id="stats" class="section">
+      <div class="section-header">
+        <span class="section-tag">Chapter 02</span>
+        <h2 class="section-title">Angie.exe — System Dashboard</h2>
+        <p class="section-subtitle">Live data. Updated in real time. Mostly terrifying.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="stat-card sc-big reveal">
+          <div class="stat-icon">🚫</div>
+          <div class="stat-number" data-target="5" data-suffix="">0</div>
+          <div class="stat-label">Times Angie Blocked Me</div>
+          <div class="stat-note">No warning. No explanation. Just blocked.</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">⚠️</div>
+          <div class="stat-number" data-target="0" data-suffix="">0</div>
+          <div class="stat-label">Warnings Before Blocking</div>
+          <div class="stat-note">Zero. Absolutely zero.</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">📸</div>
+          <div class="stat-number" data-target="∞" data-suffix="">0</div>
+          <div class="stat-label">Camera Camera Incidents</div>
+          <div class="stat-note">Still counting...</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">🔍</div>
+          <div class="stat-text">Classified</div>
+          <div class="stat-label">Successful Camera Appearances</div>
+          <div class="stat-note">Top secret. Redacted by Angie.</div>
+        </div>
+        <div class="stat-card sc-wide reveal">
+          <div class="stat-icon">💾</div>
+          <div class="stat-text status-alive">Still Alive Somehow ✓</div>
+          <div class="stat-label">Friendship Status</div>
+          <div class="stat-note">Against all probability, we're still here.</div>
+        </div>
+        <div class="stat-card reveal">
+          <div class="stat-icon">📡</div>
+          <div class="stat-text danger">Extremely High</div>
+          <div class="stat-label">Chance of Random Disappearance</div>
+          <div class="stat-note">Always expect the unexpected.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 4: CAMERA CAMERA MUSEUM ── -->
+    <section id="museum" class="section">
+      <div class="section-header">
+        <span class="section-tag">Chapter 03</span>
+        <h2 class="section-title">📷 The Camera Camera Museum</h2>
+        <p class="section-subtitle">A prestigious gallery documenting one of history's greatest mysteries.</p>
+      </div>
+
+      <div class="museum-grid">
+        <div class="museum-frame reveal">
+          <div class="frame-inner">
+            <div class="frame-content">
+              <div class="camera-off-icon">🎥</div>
+              <p class="camera-off-text">Camera Off</p>
+            </div>
+          </div>
+          <p class="frame-caption">"Tuesday, 3:47 PM"</p>
+          <p class="frame-sub">Exhibit A — The Classic</p>
+        </div>
+        <div class="museum-frame reveal">
+          <div class="frame-inner">
+            <div class="frame-content">
+              <div class="camera-off-icon">⬛</div>
+              <p class="camera-off-text">No Signal</p>
+            </div>
+          </div>
+          <p class="frame-caption">"Evidence: None"</p>
+          <p class="frame-sub">Exhibit B — The Void</p>
+        </div>
+        <div class="museum-frame reveal">
+          <div class="frame-inner">
+            <div class="frame-content">
+              <div class="camera-off-icon">🔍</div>
+              <p class="camera-off-text">Under Investigation</p>
+            </div>
+          </div>
+          <p class="frame-caption">"Case #4729 — Ongoing"</p>
+          <p class="frame-sub">Exhibit C — The Mystery</p>
+        </div>
+        <div class="museum-frame reveal">
+          <div class="frame-inner">
+            <div class="frame-content">
+              <div class="camera-off-icon">🕵️</div>
+              <p class="camera-off-text">Camera Camera!</p>
+            </div>
+          </div>
+          <p class="frame-caption">"Response: 😂"</p>
+          <p class="frame-sub">Exhibit D — The Ritual</p>
+        </div>
+        <div class="museum-frame reveal">
+          <div class="frame-inner">
+            <div class="frame-content">
+              <div class="camera-off-icon">🎞️</div>
+              <p class="camera-off-text">No Evidence Found</p>
+            </div>
+          </div>
+          <p class="frame-caption">"Classified by Subject"</p>
+          <p class="frame-sub">Exhibit E — The Classified</p>
+        </div>
+        <div class="museum-frame reveal">
+          <div class="frame-inner">
+            <div class="frame-content">
+              <div class="camera-off-icon">🌑</div>
+              <p class="camera-off-text">Still Searching...</p>
+            </div>
+          </div>
+          <p class="frame-caption">"Year: Unknown"</p>
+          <p class="frame-sub">Exhibit F — The Ongoing Search</p>
+        </div>
+      </div>
+
+      <div class="museum-footer reveal">
+        <div class="museum-plaque">
+          🔬 Scientists, historians and cryptographers continue their relentless search for visual proof of Angie.<br>
+          The investigation remains open. Funding has been approved for Year 2.
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 5: PERSONALITY ANALYSIS ── -->
+    <section id="analysis" class="section">
+      <div class="section-header">
+        <span class="section-tag">Chapter 04</span>
+        <h2 class="section-title">AI Personality Scan</h2>
+        <p class="section-subtitle">Advanced neural analysis of Subject: Angie. Results are extremely concerning (in the best way).</p>
+      </div>
+
+      <div class="scanner-wrap reveal">
+        <div class="scanner-screen">
+          <div class="scan-line"></div>
+          <div class="scanner-header">
+            <span class="scan-dot"></span> SCANNING... SUBJECT IDENTIFIED
+          </div>
+          <div class="bars-grid">
+            <div class="bar-row">
+              <span class="bar-label">Intelligence</span>
+              <div class="bar-track"><div class="bar-fill" data-width="95"></div></div>
+              <span class="bar-val">95%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Nerdiness</span>
+              <div class="bar-track"><div class="bar-fill" data-width="100"></div></div>
+              <span class="bar-val">100%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Stubbornness</span>
+              <div class="bar-track"><div class="bar-fill" data-width="110" data-overflow="true"></div></div>
+              <span class="bar-val bar-overflow">110% ⚠️</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Kindness</span>
+              <div class="bar-track"><div class="bar-fill hidden-stat" data-width="0"></div></div>
+              <span class="bar-val bar-hidden">Hidden Stat 🔒</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Humor</span>
+              <div class="bar-track"><div class="bar-fill" data-width="88"></div></div>
+              <span class="bar-val">88%</span>
+            </div>
+            <div class="bar-row">
+              <span class="bar-label">Emotional Resilience</span>
+              <div class="bar-track"><div class="bar-fill legendary" data-width="100"></div></div>
+              <span class="bar-val bar-legend">LEGENDARY ✨</span>
+            </div>
+          </div>
+          <div class="scan-result">
+            VERDICT: Exceptionally rare human. Handle with care. 💖
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 6: HIDDEN TRUTH ── -->
+    <section id="truth" class="section truth-section">
+      <div class="truth-content reveal">
+        <div class="truth-icon">🌸</div>
+        <h2 class="truth-title">For Angie</h2>
+        <p class="truth-sub">The part nobody really says out loud</p>
+
+        <div class="truth-cards">
+          <div class="truth-card tc-1 reveal">
+            <span class="tc-num">—</span>
+            <p>You act stronger than you actually feel sometimes.</p>
+          </div>
+          <div class="truth-card tc-2 reveal">
+            <span class="tc-num">—</span>
+            <p>You carry more than most people even know you carry.</p>
+          </div>
+          <div class="truth-card tc-3 reveal">
+            <span class="tc-num">—</span>
+            <p>You care about people far more than you let on.</p>
+          </div>
+          <div class="truth-card tc-4 reveal">
+            <span class="tc-num">—</span>
+            <p>You keep moving forward even when life doesn't make it easy.</p>
+          </div>
+          <div class="truth-card tc-5 reveal">
+            <span class="tc-num">—</span>
+            <p>The world sees the strong version of you. The people close to you get to see the softer one too. That version is just as beautiful.</p>
+          </div>
+        </div>
+
+        <div class="truth-close">
+          You don't have to be okay all the time.<br>
+          Nineteen is a good time to start believing that. 🌙
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 7: LEVEL 19 ACHIEVEMENT ── -->
+    <section id="level" class="section">
+      <div class="section-header">
+        <span class="section-tag">Achievement Unlocked</span>
+        <h2 class="section-title">Level 19 🎮</h2>
+      </div>
+
+      <div class="achievement-screen reveal">
+        <div class="achievement-header">
+          <div class="achievement-icon">👑</div>
+          <div class="achievement-player">
+            <span class="ach-label">PLAYER</span>
+            <span class="ach-name">Angie</span>
+          </div>
+          <div class="achievement-level">
+            <span class="ach-label">LEVEL</span>
+            <span class="ach-num">19</span>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-badge reveal"><span>🔍</span> Curiosity</div>
+          <div class="skill-badge reveal"><span>⚡</span> Resilience</div>
+          <div class="skill-badge reveal"><span>😂</span> Humor</div>
+          <div class="skill-badge reveal"><span>🧠</span> Intelligence</div>
+          <div class="skill-badge reveal"><span>💛</span> Compassion</div>
+          <div class="skill-badge reveal"><span>🌸</span> Softness (rare)</div>
+        </div>
+
+        <div class="passive-ability reveal">
+          <span class="passive-tag">★ SPECIAL PASSIVE ABILITY</span>
+          <p>Survives things she never even talks about.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 8: BIRTHDAY WISHES ── -->
+    <section id="wishes" class="section">
+      <div class="section-header">
+        <span class="section-tag">From the heart</span>
+        <h2 class="section-title">Birthday Wishes Wall 💌</h2>
+        <p class="section-subtitle">Handwritten. Genuine. Just for you.</p>
+      </div>
+
+      <div class="wishes-grid">
+        <div class="wish-note wn-1 reveal">
+          <div class="wish-tape"></div>
+          <p>May 19 be the year you start trusting yourself as much as everyone around you does. 🌸</p>
+        </div>
+        <div class="wish-note wn-2 reveal">
+          <div class="wish-tape"></div>
+          <p>You're smarter than you think you are. You're kinder than you show. Keep going. ⭐</p>
+        </div>
+        <div class="wish-note wn-3 reveal">
+          <div class="wish-tape"></div>
+          <p>I hope this year brings you things that genuinely surprise you. In the best way. 🎁</p>
+        </div>
+        <div class="wish-note wn-4 reveal">
+          <div class="wish-tape"></div>
+          <p>You've survived everything that's tried to slow you down. That's not luck — that's you. 💪</p>
+        </div>
+        <div class="wish-note wn-5 reveal">
+          <div class="wish-tape"></div>
+          <p>May your curiosity always lead you somewhere beautiful. Even on the internet. 🌐</p>
+        </div>
+        <div class="wish-note wn-6 reveal">
+          <div class="wish-tape"></div>
+          <p>Be a little gentler with yourself this year. You deserve the same care you give others. 🕊️</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SECTION 9: GRAND FINALE ── -->
+    <section id="finale" class="section finale-section">
+      <canvas id="confettiCanvas"></canvas>
+
+      <div class="finale-content">
+        <div class="finale-crown reveal">👑</div>
+        <h1 class="finale-title reveal">Happy Birthday,<br><span class="finale-name">Angie</span></h1>
+
+        <div class="finale-words reveal">
+          <p class="fw fw-1">"Keep being curious."</p>
+          <p class="fw fw-2">"Keep being strong."</p>
+          <p class="fw fw-3">"Keep being yourself."</p>
+          <p class="fw fw-4">"And maybe..."</p>
+          <p class="fw fw-5 italic">"Turn the camera on once in a while."</p>
+        </div>
+
+        <button class="camera-btn reveal" id="cameraBtn" onclick="cameraClick()">
+          CAMERA CAMERA 📸
+        </button>
+
+        <div class="camera-response hidden" id="cameraResponse">
+          <p>Camera still off.</p>
+          <span>🖤</span>
+          <p class="cr-sub">But the laugh was worth it. Happy birthday, Angie. 🌸</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Navigation dots -->
+  <nav class="dot-nav" id="dotNav">
+    <a href="#hero" class="dot-link active" title="Home"></a>
+    <a href="#origin" class="dot-link" title="Origin"></a>
+    <a href="#stats" class="dot-link" title="Stats"></a>
+    <a href="#museum" class="dot-link" title="Museum"></a>
+    <a href="#analysis" class="dot-link" title="Analysis"></a>
+    <a href="#truth" class="dot-link" title="Truth"></a>
+    <a href="#level" class="dot-link" title="Level"></a>
+    <a href="#wishes" class="dot-link" title="Wishes"></a>
+    <a href="#finale" class="dot-link" title="Finale"></a>
+  </nav>
+
+  <script src="script.js"></script>
 </body>
 </html>
