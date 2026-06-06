@@ -493,14 +493,4 @@ if (window.innerWidth > 768) {
   }, { passive: true });
 }
 
-/* ──────────────────────────────────────────
-   16. MUSEUM FRAME — click easter egg
-   ────────────────────────────────────────── */
-document.querySelectorAll('.museum-frame').forEach(frame => {
-  frame.addEventListener('click', () => {
-    const icon = frame.querySelector('.camera-off-icon');
-    const original = icon.textContent;
-    icon.textContent = '😂';
-    setTimeout(() => { icon.textContent = original; }, 600);
-  });
-});
+/* ── end ── */
