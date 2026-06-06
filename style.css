@@ -323,7 +323,7 @@ body {
 /* ==============================================
    SECTION 2: ORIGIN STORY — TIMELINE
    ============================================== */
-#origin { max-width: 900px; }
+#origin { max-width: 900px; overflow: hidden; }
 
 .timeline {
   position: relative;
@@ -370,9 +370,11 @@ body {
   border: 3px solid var(--dark);
   border-radius: 50%;
   box-shadow: 0 0 12px var(--pink-bright);
+  z-index: 1;
+  flex-shrink: 0;
 }
-.tl-left  .tl-dot { right: -47px; }
-.tl-right .tl-dot { left: -47px; }
+.tl-left  .tl-dot { right: -7px; left: auto; }
+.tl-right .tl-dot { left: -7px; right: auto; }
 
 .tl-emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
 .tl-card h3 {
@@ -400,14 +402,30 @@ body {
   padding: 3px 10px; border-radius: 10px;
 }
 
-/* Mobile timeline */
+/* Mobile timeline — single column, left-aligned */
 @media (max-width: 640px) {
-  .timeline::before { left: 20px; }
-  .timeline-item { width: 100%; padding-left: 50px; padding-right: 0; margin-left: 0; }
-  .timeline-item.tl-left { justify-content: flex-start; padding-right: 0; }
+  .timeline::before { left: 18px; transform: none; }
+
+  .timeline-item,
+  .timeline-item.tl-left,
+  .timeline-item.tl-right {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 44px;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+
   .tl-left  .tl-dot,
-  .tl-right .tl-dot { left: -37px; right: auto; }
-  .tl-card { max-width: 100%; }
+  .tl-right .tl-dot {
+    left: 11px;
+    right: auto;
+  }
+
+  .tl-card {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 /* ==============================================
